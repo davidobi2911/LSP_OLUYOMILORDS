@@ -33,7 +33,7 @@ public class IntegerSet {
 
 		 */
 	public void clear() {
-	  set = null;
+	  set.clear();
 	  
 
 	  

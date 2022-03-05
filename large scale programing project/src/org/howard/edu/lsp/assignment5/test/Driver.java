@@ -1,6 +1,7 @@
 package org.howard.edu.lsp.assignment5.test;
 
 import org.howard.edu.lsp.assignment5.implementation.IntegerSet;
+import org.howard.edu.lsp.assignment5.implementation.IntegerSetException;
 
 public class Driver {
 	// Below is sample of how your driver should look.  Your driver contains your main method and its primary function is to test your IntegerSet class.  Every method in IntegerSet should be sufficiently tested and your output easy to read.  Below is a small example of the granularity of how your output should look.  Each operation on a method should show the contents of your IntegerSet before and after each operation.  Part of your grade on this assignment is how expressive your output is.
@@ -24,8 +25,18 @@ public class Driver {
 		set2.add(3);
 		
 		System.out.println("Value of set1 is: " + set1.toString());
-		System.out.println("Smallest value of set" + set1.smallest());
-		System.out.println("Largest value in Set1 is:" + set1.largest());
+		try {
+			System.out.println("Smallest value of set: " + set1.smallest());
+		} catch (IntegerSetException e1) {
+			// TODO Auto-generated catch block
+			e1.getMessage();
+		}
+		try {
+			System.out.println("Largest value in Set1 is: " + set1.largest());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.getMessage();
+		}
 
 		 
 
@@ -38,14 +49,24 @@ public class Driver {
 	  //testing to string method
 	 System.out.println (" Value of Set1 is:" + set1.toString());
 	  //testing the smallest method
-	System.out.println("Smallest value in Set1 is:" + set1.smallest());
+	try {
+		System.out.println("Smallest value in Set1 is:" + set1.smallest());
+	} catch (IntegerSetException e) {
+		// TODO Auto-generated catch block
+		e.getMessage();
+	}
 
 	//testing the largest method
-	System.out.println("Largest value in Set1 is:" + set1.largest());
+	try {
+		System.out.println("Largest value in Set1 is:" + set1.largest());
+	} catch (IntegerSetException e) {
+		// TODO Auto-generated catch block
+		e.getMessage();
+	}
 	    //testing the length method
-	    IntegerSet set3;
+	    IntegerSet set3 = new IntegerSet();
 		System.out.println("The length of set3 which is" + set3.getSet());
-
+ 
 
 	    //testing union method
 	System.out.println("Union of Set1 and Set2");
@@ -59,7 +80,12 @@ public class Driver {
 
 	  System.out.println("Set before removing element: " + set1.getSet().toString());
 
-	  set1.remove(3);
+	  try {
+		set1.remove(3);
+	} catch (IntegerSetException e) {
+		// TODO Auto-generated catch block
+		e.getMessage();
+	}
 	  System.out.println("Set after removing element: " + set1.getSet().toString());
 	    
 
