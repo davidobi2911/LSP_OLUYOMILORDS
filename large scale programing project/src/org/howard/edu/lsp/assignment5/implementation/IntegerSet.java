@@ -83,14 +83,9 @@ public class IntegerSet {
 			  
 		  }
 	  }
-	if (amount == set.size())
-	  {
-	    return true;
-	  }
-	  else{
-	    return false;
-	  }
-	} 
+	return (amount == set.size());
+	  
+	}
 	
 
 
@@ -213,22 +208,24 @@ public class IntegerSet {
 	 * @param intSetb 
 	 */
 	public void diff(IntegerSet intSetb) {
+		  if (set.isEmpty() || intSetb.getSet().isEmpty())
+	
+		  {
+		    System.out.println("There is no difference because there is an empty set ");
+		  }
 		
 	
 	  List<Integer> diffList = new ArrayList<Integer>();
 	  for (int i= 0; i < set.size(); i++)
 	    {
-	      if (!intSetb.getSet().contains(i))
+	      if (!intSetb.getSet().contains(set.get(i)))
 	      {
-	        diffList.add(i);
+	        diffList.add(set.get(i));
 	      }
 	      
-	  if (diffList.isEmpty())
-	  {
-	    System.out.println("There is no difference ");
-	  }
+	
 
-	  set = (ArrayList<Integer>) diffList;
+	  set =  (ArrayList<Integer>) diffList;
 	    }
 	} ;
 

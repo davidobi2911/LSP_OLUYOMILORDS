@@ -40,11 +40,7 @@ public class Driver {
 
 		 
 
-	    // testing clear method
-	  System.out.println("Set before clearing is " + set1.getSet());
-	  set1.clear();
-	  System.out.println("Set after clearing is " + set1.getSet().toString());
-	    
+	
 
 	  //testing to string method
 	 System.out.println (" Value of Set1 is:" + set1.toString());
@@ -64,8 +60,8 @@ public class Driver {
 		e.getMessage();
 	}
 	    //testing the length method
-	    IntegerSet set3 = new IntegerSet();
-		System.out.println("The length of set3 which is" + set3.getSet());
+	  
+		System.out.println("The length of set2 is: " + set2.length());
  
 
 	    //testing union method
@@ -73,9 +69,8 @@ public class Driver {
 	System.out.println("Value of set1 is: " + set1.toString());
 	System.out.println("Value of set2 is: " + set2.toString());
 	set1.union(set2);	// union of set1 and set2
-	System.out.println("Result of the union of set1 and set2");
-	set1.toString();	// result of union of set1 and set2
-
+	System.out.println("Result of the union of set1 and set2" + set1.toString());
+		
 	  //testing the remove method
 
 	  System.out.println("Set before removing element: " + set1.getSet().toString());
@@ -90,27 +85,36 @@ public class Driver {
 	    
 
 	// testing the intersect method
-	  System.out.println("Intersection of set1 and set2: ");
+	  System.out.println("Intersection of set1 and set2 ");
 	  System.out.println("Value of set1: " + set1.toString());
 	  System.out.println("Value of set2: " + set2.toString());
 	  set1.intersect(set2); //intersection of set1 and set2
-	  System.out.println("Result of intersection of set1 and set2: "); 
+	  
 	  set1.toString();
+	  System.out.println("Result of intersection of set1 and set2: " + set1.toString());
 
 	  
 	//testing the difference method
+	  set1.add(2);
+	  set1.add(4);
 	 System.out.println("Difference between set1 and set2: ");
 	System.out.println("Value of set1: " + set1.toString());
 	System.out.println("Value of set2: " + set2.toString());
 	set1.diff(set2); //difference of the two sets
-	System.out.println("Result of the difference of set1 and set2: ");
-	set1.toString();
-
+	System.out.println("Result of the difference of set1 and set2: " + set1.toString());
+	
+	set1.add(3);
 	//testing equals method
-	System.out.println("Checking if set1 and set2 are equal: ");
+	System.out.println("Checking if set1 and set2 are equal ");
 	System.out.println("Value of set1: " + set1.toString());
 	System.out.println("Value of set2: " + set2.toString());
 
 	System.out.println("Result of the check is: " + set1.equals(set2));
+	
+     //testing clear method
+	  System.out.println("Set before clearing is " + set1.getSet());
+	  set1.clear();
+	  System.out.println("Set after clearing is " + set1.getSet().toString());
+	    
 
 }}
