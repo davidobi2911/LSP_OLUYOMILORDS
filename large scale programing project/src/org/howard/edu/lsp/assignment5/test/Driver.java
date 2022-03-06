@@ -96,7 +96,7 @@ public class Driver {
 	  
 	//testing the difference method
 	  set1.add(2);
-	  set1.add(4);
+	  set1.add(3);
 	 System.out.println("Difference between set1 and set2: ");
 	System.out.println("Value of set1: " + set1.toString());
 	System.out.println("Value of set2: " + set2.toString());
