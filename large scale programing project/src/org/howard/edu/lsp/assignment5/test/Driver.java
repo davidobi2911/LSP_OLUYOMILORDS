@@ -85,6 +85,10 @@ public class Driver {
 	    
 
 	// testing the intersect method
+	  set1  = new IntegerSet();
+	  set1.add(2);
+	  set1.add(3);
+	  
 	  System.out.println("Intersection of set1 and set2 ");
 	  System.out.println("Value of set1: " + set1.toString());
 	  System.out.println("Value of set2: " + set2.toString());

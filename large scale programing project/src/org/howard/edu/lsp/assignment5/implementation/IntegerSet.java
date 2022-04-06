@@ -189,16 +189,18 @@ public class IntegerSet {
 	 */
 	public void intersect(IntegerSet intSetb) {
 	  List<Integer> newList = new ArrayList<Integer>();
-	  for (int i = 0; i < set.size(); i++)
+	  ArrayList <Integer> newList2 = intSetb.getSet();
+	  
+	  
+	  for (int i = 0; i < newList2.size(); i++)
 	    {
-	      if (intSetb.getSet().contains(i))
+	      if (set.contains(newList2.get(i)))
 	      {
-	        newList.add(i);
+	        newList.add(newList2.get(i));
 	      }
-	      {
-	    set  = (ArrayList<Integer>) newList; 
-	      }
+	      
 	    }
+	  set  =  (ArrayList<Integer>) newList; 
 	  
 	}; 
 
