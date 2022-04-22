@@ -1,6 +1,5 @@
 package org.howard.edu.lsp.finalExam;
 
-import MapUtilities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -39,10 +38,11 @@ public class MapUtilitiesTest {
 		
 		map5.put("LeBron", "Blah");
 		map5.put("david", "Salah");
+		map5.put("david", "lords");
 		
 		//testing if one of them is null
 		Exception exception = assertThrows(NullMapException.class, () ->{
-			commonKeyValuePairs(map1, map3);
+			MapUtilities.commonKeyValuePairs(map1, map3);
 			
 		});
 		
@@ -53,7 +53,7 @@ public class MapUtilitiesTest {
 		//testing when both maps are null
 		
 		Exception exception2 = assertThrows(NullMapException.class, () ->{
-			commonKeyValuePairs(map1, map2);
+			MapUtilities.commonKeyValuePairs(map1, map2);
 			
 		});
 		
@@ -63,8 +63,8 @@ public class MapUtilitiesTest {
 		
 		//testing when one of them is empty
 		
-		int output = commonKeyValuePairs(map4, map6);
-		int output2 = commonKeyValuePairs(map6, map3);
+		int output = MapUtilities.commonKeyValuePairs(map4, map6);
+		int output2 = MapUtilities.commonKeyValuePairs(map6, map3);
 		
 		assertEquals(String.valueOf(output), String.valueOf(0));
 		assertNotEquals(String.valueOf(output), String.valueOf(1));
@@ -75,7 +75,7 @@ public class MapUtilitiesTest {
 		//testing when both maps are empty
 		HashMap<String, String> map7 = new HashMap<String, String>();
 		
-		int output3 = commonKeyValuePairs(map6, map7);
+		int output3 = MapUtilities.commonKeyValuePairs(map6, map7);
 		
 		assertEquals(String.valueOf(output3), String.valueOf(0));
 		assertNotEquals(String.valueOf(output3), String.valueOf(3));
@@ -83,7 +83,7 @@ public class MapUtilitiesTest {
 		//testing that null executes before empty so I'm testing a null and empty set
 		
 		Exception exception3 = assertThrows(NullMapException.class, () ->{
-			commonKeyValuePairs(map1, map2);
+			MapUtilities.commonKeyValuePairs(map1, map2);
 			
 		});
 		
@@ -94,25 +94,44 @@ public class MapUtilitiesTest {
 		
 		//testing to see it works properly when the lengths of the maps are equal
 		
-		int output4 = commonKeyValuePairs(map3, map4);
+		int output4 = MapUtilities.commonKeyValuePairs(map3, map4);
 		
 		
-		assertEquals(String.valueOf(output3), String.valueOf(3));
-		assertNotEquals(String.valueOf(output3), String.valueOf(0));
+		assertEquals(String.valueOf(output4), String.valueOf(3));
+		assertNotEquals(String.valueOf(output4), String.valueOf(0));
+		
+		//testing when the maps have different lengths
+		//also testing when it has a similar key but not the same key-value pair
+		
+		int output5 = MapUtilities.commonKeyValuePairs(map4, map5);
+		
+		assertEquals(String.valueOf(output5), String.valueOf(1));
+		assertNotEquals(String.valueOf(output5), String.valueOf(4));
+		
+		//testing when there is no common key value pair of same length
+		HashMap<String, String> map8 = new HashMap<String, String>();
+		map8.put("d", "blah");
+		map8.put("Leb", "James");
+		map8.put("lords", "david");
+		map8.put("Mo", "Mane");
 		
 		
 		
+		int output6 = MapUtilities.commonKeyValuePairs(map4, map8);
 		
+		assertEquals(String.valueOf(output6), String.valueOf(0));
+		assertNotEquals(String.valueOf(output6), String.valueOf(3));
 		
+		//testing when there is no common key value. maps of different length
 		
+		int output7 = MapUtilities.commonKeyValuePairs(map5, map8);
 		
-	
+		assertEquals(String.valueOf(output7), String.valueOf(0));
+		assertNotEquals(String.valueOf(output7), String.valueOf(3));
+			
 		
-		
-		
-		
+	}
+			
 	}
 	
 	
-
-}
