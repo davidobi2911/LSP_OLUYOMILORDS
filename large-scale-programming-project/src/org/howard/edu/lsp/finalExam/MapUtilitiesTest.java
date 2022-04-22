@@ -43,12 +43,19 @@ public class MapUtilitiesTest {
 		//testing if one of them is null
 		Exception exception = assertThrows(NullMapException.class, () ->{
 			MapUtilities.commonKeyValuePairs(map1, map3);
+			MapUtilities.commonKeyValuePairs(map4, map1);
 			
 		});
 		
 		String expectedMessage = "Either one of the maps is null or both of them are null";
 		String actualMessage = exception.getMessage();
 		assertTrue(actualMessage.contains(expectedMessage));
+		
+		String expectedMessage4 = "Either one of the maps is null or both of them are null";
+		String actualMessage4 = exception.getMessage();
+		assertTrue(actualMessage4.contains(expectedMessage4));
+		
+		
 		
 		//testing when both maps are null
 		
@@ -66,19 +73,19 @@ public class MapUtilitiesTest {
 		int output = MapUtilities.commonKeyValuePairs(map4, map6);
 		int output2 = MapUtilities.commonKeyValuePairs(map6, map3);
 		
-		assertEquals(String.valueOf(output), String.valueOf(0));
-		assertNotEquals(String.valueOf(output), String.valueOf(1));
+		assertEquals(output, 0);
+		assertNotEquals(output, 1);
 		
-		assertEquals(String.valueOf(output2), String.valueOf(0));
-		assertNotEquals(String.valueOf(output2), String.valueOf(1));
+		assertEquals(output2, 0);
+		assertNotEquals(output2, 1);
 		
 		//testing when both maps are empty
 		HashMap<String, String> map7 = new HashMap<String, String>();
 		
 		int output3 = MapUtilities.commonKeyValuePairs(map6, map7);
 		
-		assertEquals(String.valueOf(output3), String.valueOf(0));
-		assertNotEquals(String.valueOf(output3), String.valueOf(3));
+		assertEquals(output3, 0);
+		assertNotEquals(output3, 3);
 		
 		//testing that null executes before empty so I'm testing a null and empty set
 		
@@ -97,16 +104,16 @@ public class MapUtilitiesTest {
 		int output4 = MapUtilities.commonKeyValuePairs(map3, map4);
 		
 		
-		assertEquals(String.valueOf(output4), String.valueOf(3));
-		assertNotEquals(String.valueOf(output4), String.valueOf(0));
+		assertEquals(output4, 3);
+		assertNotEquals(output4, 0);
 		
 		//testing when the maps have different lengths
 		//also testing when it has a similar key but not the same key-value pair
 		
 		int output5 = MapUtilities.commonKeyValuePairs(map4, map5);
 		
-		assertEquals(String.valueOf(output5), String.valueOf(1));
-		assertNotEquals(String.valueOf(output5), String.valueOf(4));
+		assertEquals(output5, 1);
+		assertNotEquals(output5,4);
 		
 		//testing when there is no common key value pair of same length
 		HashMap<String, String> map8 = new HashMap<String, String>();
@@ -119,15 +126,15 @@ public class MapUtilitiesTest {
 		
 		int output6 = MapUtilities.commonKeyValuePairs(map4, map8);
 		
-		assertEquals(String.valueOf(output6), String.valueOf(0));
-		assertNotEquals(String.valueOf(output6), String.valueOf(3));
+		assertEquals(output6, 0);
+		assertNotEquals(output6, 3);
 		
 		//testing when there is no common key value. maps of different length
 		
 		int output7 = MapUtilities.commonKeyValuePairs(map5, map8);
 		
-		assertEquals(String.valueOf(output7), String.valueOf(0));
-		assertNotEquals(String.valueOf(output7), String.valueOf(3));
+		assertEquals(output7, 0);
+		assertNotEquals(output7, 3);
 			
 		
 	}
