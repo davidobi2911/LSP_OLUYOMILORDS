@@ -3,14 +3,9 @@ package org.howard.edu.lsp.finalExam;
 import java.util.HashMap;
 
 public class MapUtilities {
-/**
- * 
- * @param map1
- * @param map2
- * @return the count of the common key-value pairs in two hashmaps.
- * @throws NullMapException
- */
-	    public static int commonKeyValuePairs(
+
+	// returns the count of the common key-value pairs in two HashMaps.
+	public static int commonKeyValuePairs(
 	        HashMap<String, String> map1,
 	        HashMap<String, String> map2) throws NullMapException
 	    {
